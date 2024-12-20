@@ -1,4 +1,5 @@
 ﻿using IleriWebProje.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje
 {
@@ -14,7 +15,7 @@ namespace IleriWebProje
         public void ConfigureServices(IServiceCollection services)
         {
             // DbContext configuration
-            services.AddDbContext<AppDbContext>();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
             services.AddCors();

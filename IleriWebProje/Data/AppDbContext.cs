@@ -3,44 +3,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje.Data
 {
-    public class AppDbContext
+    public class AppDbContext : DbContext
     {
-        Public class AppDbContext : DbContext
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-            {
-            }
-
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
-            {
-                modelBuilder.Entity<Mentors_Skills>().HasKey(ms => new
-                {
-                    ms.MentorID,
-                    ms.SkillID
-                });
-
-                modelBuilder.Entity<Mentors_Skills>()
-                    .HasOne(s => s.Skill)
-                    .WithMany(sm => sm.Mentors_Skills)
-                    .HasForeignKey(s => s.SkillID);
-
-                modelBuilder.Entity<Mentors_Skills>()
-                    .HasOne(s => s.Mentor)
-                    .WithMany(sm => sm.Mentors_Skills)
-                    .HasForeignKey(s => s.MentorID);
-
-                base.OnModelCreating(modelBuilder);
-            }
-
-            public DbSet<Mentors> Mentors { get; set; }
-            public DbSet<Skills> Skills { get; set; }
-            public DbSet<Mentors_Skills> Mentors_Skills { get; set; }
-            public DbSet<Platforms> Platforms { get; set; }
-            public DbSet<Skill_Organizers> Skill_Organizers { get; set; }
-
-
-
-
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Mentors_Skills>().HasKey(ms => new
+            {
+                ms.MentorID,
+                ms.SkillID
+            }); 
+
+            modelBuilder.Entity<Mentors_Skills>()
+                .HasOne(s => s.Skill)
+                .WithMany(sm => sm.Mentors_Skills)
+                .HasForeignKey(s => s.SkillID);
+
+            modelBuilder.Entity<Mentors_Skills>()
+                .HasOne(s => s.Mentor)
+                .WithMany(sm => sm.Mentors_Skills)
+                .HasForeignKey(s => s.MentorID);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<Mentors> Mentors { get; set; }
+        public DbSet<Skills> Skills { get; set; }
+        public DbSet<Mentors_Skills> Mentors_Skills { get; set; }
+        public DbSet<Platforms> Platforms { get; set; }
+        public DbSet<Skill_Organizers> Skill_Organizers { get; set; }
     }
 }
