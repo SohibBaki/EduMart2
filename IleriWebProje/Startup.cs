@@ -1,4 +1,6 @@
-﻿namespace IleriWebProje
+﻿using IleriWebProje.Data;
+
+namespace IleriWebProje
 {
     public class Startup
     {
@@ -11,6 +13,9 @@
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // DbContext configuration
+            services.AddDbContext<AppDbContext>();
+
             services.AddControllersWithViews();
             services.AddCors();
         }
