@@ -9,15 +9,18 @@ namespace IleriWebProje.Models
         public int Id { get; set; }
 
         [Display(Name = "Logo")]
+        [Required(ErrorMessage = "Platform Logo is required")]
         public string PlatformLogo { get; set; }
 
         [Display(Name = "Platform Name")]
+        [Required(ErrorMessage = "Platform Name is required")]
         public string PlatformName { get; set; }
 
         [Display(Name = "Description")]
+        [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
 
         // Relationships
-        public List<Skills>? Skills { get; set; }
+        public List<Skills> ? Skills { get; set; }
     }
 }

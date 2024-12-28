@@ -1,0 +1,62 @@
+﻿@model Platforms
+
+@{
+    ViewData["Title"] = "Detail of Platform";
+}
+
+<style>
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+    }
+
+</style>
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Details for @Model.PlatformName</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+
+                <div class="form-group text-center">
+                    <img id="PlatformLogoPreview" class="profile-picture" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PlatformLogo" class="control-label"></label>
+                    <input asp-for="PlatformLogo" class="form-control" readonly />
+                    <span asp-validation-for="PlatformLogo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PlatformName" class="control-label"></label>
+                    <input asp-for="PlatformName" class="form-control" readonly />
+                    <span asp-validation-for="PlatformName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" readonly />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            var output = document.getElementById('PlatformLogoPreview');
+            output.src = $("#PlatformLogo").val();
+        })
+
+    </script>
+}

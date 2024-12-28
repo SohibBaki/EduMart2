@@ -20,7 +20,7 @@ namespace IleriWebProje.Controllers
             return View(allskill_Organizers);
         }
 
-        // Get SkillOrganizers/ Deatils/1
+        // Get SkillOrganizers/ Details /1
         public async Task<IActionResult> Details(int id)
         {
             var skillOrganizersDetails = await _service.GetByIdAsync(id);

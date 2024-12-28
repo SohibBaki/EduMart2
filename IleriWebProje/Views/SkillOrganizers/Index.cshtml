@@ -4,6 +4,17 @@
     ViewData["Title"] = "List of Organizers";
 }
 
+<style>
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+    }
+
+</style>
+
 <div class="row">
     <div class="col-md-8 offset-md-2">
 
@@ -22,7 +33,7 @@
                 {
                     <tr>
                         <td class="align-middle">
-                            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 150px" />
+                            <img class="profile-picture" src="@item.ProfilePictureURL" alt="@item.FullName" />
                         </td>
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.FullName)

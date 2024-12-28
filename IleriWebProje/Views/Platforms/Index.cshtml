@@ -4,6 +4,17 @@
     ViewData["Title"] = "List of Platforms";
 }
 
+<style>
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+    }
+
+</style>
+
 <div class="row">
     <div class="col-md-8 offset-md-2">
 
@@ -22,7 +33,7 @@
                 {
                     <tr>
                         <td class="align-middle">
-                            <img class="rounded-circle" src="@item.PlatformLogo" alt="@item.PlatformName" style="max-width: 150px" />
+                            <img class="profile-picture" src="@item.PlatformLogo" alt="@item.PlatformName" />
                         </td>
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.PlatformName)
@@ -31,9 +42,9 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td class="align-middle">
-                            <a class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i>Edit</a>
-                            <a class="btn btn-outline-info"><i class="bi bi-eye"></i>Details</a>
-                            <a class="btn btn-danger text-white"><i class="bi bi-trash"></i>Delete</a>
+                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit</a>
+                            <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Details</a>
+                            <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete </a>
                         </td>
                     </tr>
                 }
@@ -42,4 +53,8 @@
 
     </div>
 
+</div>
+
+<div style="position: fixed; right: 25px; bottom: 25px" class="text-white">
+    <a asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"> Add New</i></a>
 </div>
