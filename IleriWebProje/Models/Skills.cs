@@ -17,16 +17,16 @@ namespace IleriWebProje.Models
         public Skill_Category SkillCategory { get; set; }
 
         // Relationships
-        public List<Mentors_Skills> Mentors_Skills { get; set; }
+        public List<Mentors_Skills>? Mentors_Skills { get; set; }
 
         // Platforms
-        public int PlatformID { get; set; }
-        [ForeignKey("PlatformID")]
+        public int PlatformId { get; set; }
+        [ForeignKey("PlatformId")]
         public Platforms Platforms { get; set; }
 
         // Skill_Organizers
         public int SkillOrganizerID { get; set; }
         [ForeignKey("SkillOrganizerID")]
-        public Skill_Organizers Skill_Organizers { get; set; }
+        public SkillOrganizers Skill_Organizers { get; set; }
     }
 }

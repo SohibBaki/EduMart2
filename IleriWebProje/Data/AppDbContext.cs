@@ -15,7 +15,7 @@ namespace IleriWebProje.Data
             {
                 ms.Id,
                 ms.SkillID
-            }); 
+            });
 
             modelBuilder.Entity<Mentors_Skills>()
                 .HasOne(s => s.Skill)
@@ -27,13 +27,17 @@ namespace IleriWebProje.Data
                 .WithMany(sm => sm.Mentors_Skills)
                 .HasForeignKey(s => s.Id);
 
+            modelBuilder.Entity<Skills>()
+                .HasKey(s => s.SkillID);
+
             base.OnModelCreating(modelBuilder);
         }
+
 
         public DbSet<Mentors> Mentors { get; set; }
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Mentors_Skills> Mentors_Skills { get; set; }
         public DbSet<Platforms> Platforms { get; set; }
-        public DbSet<Skill_Organizers> Skill_Organizers { get; set; }
+        public DbSet<SkillOrganizers> Skill_Organizers { get; set; }
     }
 }

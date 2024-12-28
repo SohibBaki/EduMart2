@@ -11,8 +11,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Register the MentorsService
+// Register the Service
 builder.Services.AddScoped<IMentorsService, MentorsService>();
+builder.Services.AddScoped<ISkillOrganizersService, SkillOrganizersService>();
+builder.Services.AddScoped<IPlatformService, PlatformService>();
 
 var app = builder.Build();
 

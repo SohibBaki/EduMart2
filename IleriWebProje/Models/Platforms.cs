@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using IleriWebProje.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace IleriWebProje.Models
 {
-    public class Platforms
+    public class Platforms : IEntityBase
     {
         [Key]
-        public int PlatformID { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Logo")]
         public string PlatformLogo { get; set; }
@@ -17,6 +18,6 @@ namespace IleriWebProje.Models
         public string Description { get; set; }
 
         // Relationships
-        public List<Skills> Skills { get; set; }
+        public List<Skills>? Skills { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IleriWebProje.Data;
+using IleriWebProje.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,14 +7,14 @@ namespace IleriWebProje.Controllers
 {
     public class PlatformsController : Controller
     {
-        private readonly AppDbContext _context;
-        public PlatformsController(AppDbContext context)
+        private readonly IPlatformService _service;
+        public PlatformsController(IPlatformService service)
         {
-            _context = context;
+            _service = service;
         }
         public async Task <IActionResult> Index()
         {
-             var allPlatforms = await _context.Platforms.ToListAsync();
+             var allPlatforms = await _service.GetAllAsync();
             return View(allPlatforms);
         }
     }
