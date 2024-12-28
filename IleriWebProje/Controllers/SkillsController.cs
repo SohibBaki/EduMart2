@@ -13,7 +13,7 @@ namespace IleriWebProje.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allSkills = await _context.Skills.ToListAsync();
+            var allSkills = await _context.Skills.Include(n => n.Platforms).OrderBy(n => n.SkillName).ToListAsync();
             return View(allSkills);
         }
     }

@@ -13,7 +13,7 @@ namespace IleriWebProje.Data
         {
             modelBuilder.Entity<Mentors_Skills>().HasKey(ms => new
             {
-                ms.MentorID,
+                ms.Id,
                 ms.SkillID
             }); 
 
@@ -25,7 +25,7 @@ namespace IleriWebProje.Data
             modelBuilder.Entity<Mentors_Skills>()
                 .HasOne(s => s.Mentor)
                 .WithMany(sm => sm.Mentors_Skills)
-                .HasForeignKey(s => s.MentorID);
+                .HasForeignKey(s => s.Id);
 
             base.OnModelCreating(modelBuilder);
         }

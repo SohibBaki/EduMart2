@@ -1,4 +1,5 @@
 ﻿using IleriWebProje.Data;
+using IleriWebProje.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje
@@ -17,8 +18,17 @@ namespace IleriWebProje
             // DbContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // Services configuration
+            services.AddScoped<IMentorsService, MentorsService>();
             services.AddControllersWithViews();
             services.AddCors();
+
+            // Configure cookie policy
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.Secure = CookieSecurePolicy.Always;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -26,17 +36,21 @@ namespace IleriWebProje
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                // app.UseBrowserLink(); // Disable Browser Link
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCors();
             app.UseRouting();
             app.UseAuthorization();
+            app.UseCookiePolicy(); // Ensure cookie policy is applied
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

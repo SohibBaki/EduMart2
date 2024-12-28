@@ -1,11 +1,37 @@
-using IleriWebProje;
+using IleriWebProje.Data.Services;
+using IleriWebProje.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var startup = new Startup(builder.Configuration);
-startup.ConfigureServices(builder.Services);
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+// Register the DbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register the MentorsService
+builder.Services.AddScoped<IMentorsService, MentorsService>();
 
 var app = builder.Build();
-startup.Configure(app, app.Environment);
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
