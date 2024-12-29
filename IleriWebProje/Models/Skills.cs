@@ -1,13 +1,14 @@
-﻿using IleriWebProje.Data.Enums;
+﻿using IleriWebProje.Data.Base;
+using IleriWebProje.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IleriWebProje.Models
 {
-    public class Skills
+    public class Skills : IEntityBase
     {
         [Key]
-        public int SkillID { get; set; }
+        public int Id { get; set; }
         public string SkillName { get; set; }
         public string SkillDescription { get; set; }
         public string Price { get; set; }

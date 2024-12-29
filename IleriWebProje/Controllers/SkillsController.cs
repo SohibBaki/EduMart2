@@ -1,20 +1,32 @@
-﻿using IleriWebProje.Data;
+﻿using IleriWebProje.Data.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje.Controllers
 {
     public class SkillsController : Controller
     {
-        private readonly AppDbContext _context;
-        public SkillsController(AppDbContext context)
+        private readonly ISkillsService _service;
+
+        public SkillsController(ISkillsService service)
         {
-            _context = context;
+            _service = service;
         }
+
         public async Task<IActionResult> Index()
         {
-            var allSkills = await _context.Skills.Include(n => n.Platforms).OrderBy(n => n.SkillName).ToListAsync();
+            var allSkills = await _service.GetAllAsync(n => n.Platforms);
             return View(allSkills);
+        }
+
+        // Get: Skills/Details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var skillDetails = await _service.GetSkillByIdAsync(id);
+            if (skillDetails == null)
+            {
+                return NotFound();
+            }
+            return View(skillDetails);
         }
     }
 }

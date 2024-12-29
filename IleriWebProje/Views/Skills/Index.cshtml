@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="@item.ImageURL" width="100" alt="@item.SkillName">
+                        <img src="@item.ImageURL" width="100%" alt="@item.SkillName">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
@@ -52,8 +52,13 @@
                     <div class="col-md-12">
                         <div class="card-footer ">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right">
-                                    <i class="bi bi-eye-fill"></i> Show Details
+                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
+                                <i class="bi bi-eye-fill"></i> Show Details</a>
+                                <a class="btn btn-success text-white @((DateTime.Now > item.EndDate) ? "disabled" : "")"
+                                   asp-controller="Orders"
+                                   asp-action="AddItemToShoppingCart"
+                                   asp-route-id="@item.Id">
+                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price: @item.Price)
                                 </a>
                                 
                             </p>

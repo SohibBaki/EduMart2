@@ -22,6 +22,7 @@ namespace IleriWebProje
             services.AddScoped<IMentorsService, MentorsService>();
             services.AddScoped<ISkillOrganizersService, SkillOrganizersService>();
             services.AddScoped<IPlatformService, PlatformService>();
+            services.AddScoped<ISkillsService,  SkillsService>();
             services.AddControllersWithViews();
             services.AddCors();
 

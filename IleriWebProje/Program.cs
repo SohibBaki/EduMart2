@@ -15,6 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IMentorsService, MentorsService>();
 builder.Services.AddScoped<ISkillOrganizersService, SkillOrganizersService>();
 builder.Services.AddScoped<IPlatformService, PlatformService>();
+builder.Services.AddScoped<ISkillsService, SkillsService>();
 
 var app = builder.Build();
 
