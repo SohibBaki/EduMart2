@@ -4,6 +4,17 @@
     ViewData["Title"] = "Skills details";
 }
 
+<style>
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+    }
+
+</style>
+
 <div class="row">
     <div class="col-md-8 offset-2">
         <div class="card mb-12">
@@ -24,14 +35,14 @@
                     <div class="card-body">
                         <p class="card-text">@Model.SkillDescription</p>
                         <p class="card-text">
-                            <b>Cinema: </b>
-                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.PlatformId">
+                            <b>Platforms: </b>
+                            <a asp-controller="Platforms" asp-action="Details" asp-route-id="@Model.PlatformId">
                                 @Model.Platforms.PlatformName
                             </a>
                         </p>
                         <p class="card-text">
-                            <b>Producer: </b>
-                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.SkillOrganizerID">
+                            <b>SkillOrganizers: </b>
+                            <a asp-controller="SkillOrganizers" asp-action="Details" asp-route-id="@Model.SkillOrganizerID">
                                 @Model.Skill_Organizers.FullName
                             </a>
                         </p>
@@ -60,9 +71,9 @@
                                 @foreach (var mentor in Model.Mentors_Skills)
                                 {
                                     <div class="column text-center">
-                                        <img class="border-info rounded-circle" src="@mentor.Mentor.ProfilePictureURL" style="max-width: 150px" />
+                                        <img class="profile-picture" src="@mentor.Mentors.ProfilePictureURL"/>
                                         <br />
-                                        <a asp-controller="Mentors" asp-action="Details" asp-route-id="@mentor.MentorID">@mentor.Mentor.FullName</a>
+                                        <a asp-controller="Mentors" asp-action="Details" asp-route-id="@mentor.MentorID">@mentor.Mentors.FullName</a>
                                     </div>
                                 }
                             </div>

@@ -3,7 +3,7 @@ using IleriWebProje.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IleriWebProje.Models
+namespace IleriWebProje.Data.ViewModels
 {
     public class NewSkillsVM
     {

@@ -1,5 +1,7 @@
 ﻿using IleriWebProje.Data.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using IleriWebProje.Data.ViewModels;
 
 namespace IleriWebProje.Controllers
 {
@@ -27,6 +29,18 @@ namespace IleriWebProje.Controllers
                 return NotFound();
             }
             return View(skillDetails);
+        }
+
+        //GET: Skills/Create
+        public async Task<IActionResult> Create()
+        {
+            var skillDropdownsData = await _service.GetNewSkillDropdownValuesAsync();
+
+            ViewBag.platforms = new SelectList(skillDropdownsData.platforms, "Id", "PlatformName");
+            ViewBag.skillOrganizers = new SelectList(skillDropdownsData.skillOrganizers, "Id", "FullName");
+            ViewBag.mentors = new SelectList(skillDropdownsData.mentors, "Id", "FullName");
+
+            return View();
         }
     }
 }

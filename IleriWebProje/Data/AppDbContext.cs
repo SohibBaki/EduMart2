@@ -18,14 +18,14 @@ namespace IleriWebProje.Data
             });
 
             modelBuilder.Entity<Mentors_Skills>()
-                .HasOne(s => s.Skill)
-                .WithMany(ms => ms.Mentors_Skills)
-                .HasForeignKey(s => s.SkillID);
+                .HasOne(ms => ms.Mentors)
+                .WithMany(m => m.Mentors_Skills)
+                .HasForeignKey(ms => ms.MentorID);
 
             modelBuilder.Entity<Mentors_Skills>()
-                .HasOne(s => s.Mentor)
-                .WithMany(ms => ms.Mentors_Skills)
-                .HasForeignKey(s => s.MentorID);
+                .HasOne(ms => ms.Skills)
+                .WithMany(s => s.Mentors_Skills)
+                .HasForeignKey(ms => ms.SkillID);
 
             modelBuilder.Entity<Skills>()
                 .HasKey(s => s.Id);
