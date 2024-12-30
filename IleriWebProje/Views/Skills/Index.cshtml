@@ -4,6 +4,29 @@
     ViewData["Title"] = "List of Skills";
 }
 
+<style>
+    .picture {
+        width: 200px;
+        height: 400px;
+        object-fit: contain;
+    }
+
+    .card-body {
+        height: 300px; /* Fixed height for the card body */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-text.skill-description {
+        height: 100px; /* Fixed height for description */
+        overflow-y: auto; /* Add scrolling if content exceeds the height */
+        word-break: break-word; /* Ensure long words wrap properly */
+        padding: 5px; /* Add some spacing for better readability */
+        background-color: #f9f9f9; /* Optional: Add a subtle background color */
+    }
+</style>
+
 <div class="row">
     @foreach (var item in Model)
     {
@@ -15,23 +38,25 @@
                             <p class="card-text">
                                 <h5 class="card-title">
                                     {
-                                        <a class="text-white float-right"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="text-white float-right"><i class="bi bi-pencil-square"></i></a>
                                     }
                                 </h5>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="@item.ImageURL" width="100%" alt="@item.SkillName">
+                        <img class="picture" src="@item.ImageURL" alt="@item.SkillName">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
+                            <!-- Description with fixed height and scrollable content -->
                             <p class="card-text">@item.SkillDescription</p>
+                            <!-- Other details remain untouched -->
                             <p class="card-text"><b>Platform: </b>@item.Platforms.PlatformName</p>
                             <p class="card-text"><b>Category: </b>@item.SkillCategory</p>
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
                             <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
-                            <p class="card-text ">
+                            <p class="card-text">
                                 <b>Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
@@ -43,24 +68,23 @@
                                 }
                                 else
                                 {
-                                    <span class="badge bg-primary text-w hite">UPCOMING COURSE</span>
+                                    <span class="badge bg-primary text-white">UPCOMING COURSE</span>
                                 }
                             </p>
-
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="card-footer ">
+                        <div class="card-footer">
                             <p class="card-text">
                                 <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
-                                <i class="bi bi-eye-fill"></i> Show Details</a>
+                                    <i class="bi bi-eye-fill"></i> Show Details
+                                </a>
                                 <a class="btn btn-success text-white @((DateTime.Now > item.EndDate) ? "disabled" : "")"
                                    asp-controller="Orders"
                                    asp-action="AddItemToShoppingCart"
                                    asp-route-id="@item.Id">
                                     <i class="bi bi-cart-plus"></i> Add to Cart (Price: @item.Price)
                                 </a>
-                                
                             </p>
                         </div>
                     </div>
@@ -69,3 +93,4 @@
         </div>
     }
 </div>
+

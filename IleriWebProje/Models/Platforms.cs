@@ -12,7 +12,7 @@ namespace IleriWebProje.Models
         [Required(ErrorMessage = "Platform Logo is required")]
         public string PlatformLogo { get; set; }
 
-        [Display(Name = "Platform Name")]
+        [Display(Name = "Name")]
         [Required(ErrorMessage = "Platform Name is required")]
         public string PlatformName { get; set; }
 

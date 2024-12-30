@@ -36,11 +36,18 @@ namespace IleriWebProje.Controllers
         {
             var skillDropdownsData = await _service.GetNewSkillDropdownValuesAsync();
 
-            ViewBag.platforms = new SelectList(skillDropdownsData.platforms, "Id", "PlatformName");
-            ViewBag.skillOrganizers = new SelectList(skillDropdownsData.skillOrganizers, "Id", "FullName");
-            ViewBag.mentors = new SelectList(skillDropdownsData.mentors, "Id", "FullName");
+            ViewBag.Platforms = new SelectList(skillDropdownsData.platforms, "Id", "PlatformName");
+            ViewBag.SkillOrganizers = new SelectList(skillDropdownsData.skillOrganizers, "Id", "FullName");
+            ViewBag.Mentors = new SelectList(skillDropdownsData.mentors, "Id", "FullName");
 
-            return View();
+            var model = new NewSkillsVM
+            {
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(1)
+            };
+
+            return View(model);
         }
+
     }
 }

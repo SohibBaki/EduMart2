@@ -7,41 +7,47 @@ namespace IleriWebProje.Data.ViewModels
 {
     public class NewSkillsVM
     {
-
-        [Display(Description = "Skill Name")]
+        [Display(Name = "Skill Name")]
         [Required(ErrorMessage = "Name is required")]
         public string SkillName { get; set; }
-        [Display(Description = "Skill Description")]
+
+        [Display(Name = "Skill description")]
         [Required(ErrorMessage = "Description is required")]
-        public string SkillDescription { get; set; }
-        [Display(Description = "Price in TL")]
+        public string Description { get; set; }
+
+        [Display(Name = "Price in TL")]
         [Required(ErrorMessage = "Price is required")]
         public string Price { get; set; }
-        [Display(Description = "Image URL")]
+
+        [Display(Name = "Image URL")]
         [Required(ErrorMessage = "Image URL is required")]
         public string ImageURL { get; set; }
-        [Display(Description = "Skill Start Date")]
+
+        [Display(Name = "Skill Start Date")]
         [Required(ErrorMessage = "Start Date is required")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
-        [Display(Description = "Skill End Date")]
+
+        [Display(Name = "Skill End Date")]
         [Required(ErrorMessage = "End Date is required")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
-        [Display(Description = "Skill Category")]
+
+        [Display(Name = "Skill Category")]
         [Required(ErrorMessage = "Category is required")]
         public Skill_Category SkillCategory { get; set; }
 
         // Relationships
-        [Display(Description = "Select Mentor(s)")]
+        [Display(Name = "Select Mentor(s)")]
         [Required(ErrorMessage = "Skill Mentor(s) is required")]
         public List<int>? MentorIds { get; set; }
 
-        [Display(Description = "Select a Platform")]
+        [Display(Name = "Select a Platform")]
         [Required(ErrorMessage = "Skill Platform is required")]
         public int PlatformId { get; set; }
 
-        [Display(Description = "Select a Skill Organizer")]
+        [Display(Name = "Select a Skill Organizer")]
         [Required(ErrorMessage = "Skill Organizer is required")]
         public int SkillOrganizerID { get; set; }
-
     }
 }

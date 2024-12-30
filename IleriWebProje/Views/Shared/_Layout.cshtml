@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-info border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Skills" asp-action="Index">Skill Share</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -23,23 +23,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Skills" asp-action="Index"><i class="bi bi-film"></i> Skills</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Skills" asp-action="Index"><i class="bi bi-journal-bookmark-fill"></i> Skills</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear"></i> Management
+                                <i class="bi bi-gear-fill"></i> Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Platforms" asp-action="Index"><i class="bi bi-camera-reels"></i> Platforms</a>
-                                <a class="dropdown-item" asp-controller="SkillOrganizers" asp-action="Index"><i class="bi bi-headset"></i> Skill Organizers</a>
-                                <a class="dropdown-item" asp-controller="Mentors" asp-action="Index"><i class="bi bi-person-square"></i> Mentors</a>
+                                <a class="dropdown-item" asp-controller="Platforms" asp-action="Index"><i class="bi bi-play-btn-fill"></i> Platforms</a>
+                                <a class="dropdown-item" asp-controller="SkillOrganizers" asp-action="Index"><i class="bi bi-person-workspace"></i> Skill Agencies</a>
+                                <a class="dropdown-item" asp-controller="Mentors" asp-action="Index"><i class="bi bi-play-btn-fill"></i> Mentors</a>
                             </div>
                         </li>
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="Skills" asp-action="Filter" style="padding-right: 25px;">
                         <input name="searchString" type="text" class="form-control" placeholder="Search for a skill..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>
