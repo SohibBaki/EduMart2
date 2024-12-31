@@ -7,6 +7,8 @@ namespace IleriWebProje.Data.ViewModels
 {
     public class NewSkillsVM
     {
+        public int Id { get; set; }
+
         [Display(Name = "Skill Name")]
         [Required(ErrorMessage = "Name is required")]
         public string SkillName { get; set; }

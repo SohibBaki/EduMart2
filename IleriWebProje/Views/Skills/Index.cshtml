@@ -6,9 +6,9 @@
 
 <style>
     .picture {
-        width: 200px;
-        height: 400px;
-        object-fit: contain;
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
     }
 
     .card-body {
@@ -35,13 +35,12 @@
                 <div class="row g-0">
                     <div class="col-md-12">
                         <div class="card-header text-white bg-info">
-                            <p class="card-text">
-                                <h5 class="card-title">
-                                    {
-                                    <a class="text-white float-right"><i class="bi bi-pencil-square"></i></a>
-                                    }
-                                </h5>
-                            </p>
+                            <h5 class="card-title">
+                                @item.SkillName
+                                <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </h5>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -49,9 +48,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <!-- Description with fixed height and scrollable content -->
                             <p class="card-text">@item.SkillDescription</p>
-                            <!-- Other details remain untouched -->
                             <p class="card-text"><b>Platform: </b>@item.Platforms.PlatformName</p>
                             <p class="card-text"><b>Category: </b>@item.SkillCategory</p>
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
@@ -94,3 +91,6 @@
     }
 </div>
 
+@* Partial View *@
+
+@await Html.PartialAsync("_CreateItem", "Skills")

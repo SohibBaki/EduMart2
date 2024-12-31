@@ -15,9 +15,34 @@ namespace IleriWebProje.Data.Services
             _context = context;
         }
 
-        public Task AddNewMovieAsync(NewSkillsVM data)
+        public async Task AddNewSkillAsync(NewSkillsVM data)
         {
-            throw new NotImplementedException();
+            var newSkill = new Skills()
+            {
+                SkillName = data.SkillName,
+                SkillDescription = data.Description,
+                Price = data.Price,
+                ImageURL = data.ImageURL,
+                PlatformId = data.PlatformId,
+                StartDate = data.StartDate,
+                EndDate = data.EndDate,
+                SkillCategory = data.SkillCategory,
+                SkillOrganizerID = data.SkillOrganizerID
+            };
+            await _context.Skills.AddAsync(newSkill);
+            await _context.SaveChangesAsync();
+
+            //Add Skills
+            foreach (var mentorId in data.MentorIds)
+            {
+                var newMentorSkill = new Mentors_Skills()
+                {
+                    SkillID = newSkill.Id,
+                    MentorID = mentorId
+                };
+                await _context.Mentors_Skills.AddAsync(newMentorSkill);
+            }
+            await _context.SaveChangesAsync();
         }
 
 
@@ -33,7 +58,6 @@ namespace IleriWebProje.Data.Services
             return response;
         }
 
-
         public async Task<Skills> GetSkillByIdAsync(int id)
         {
             return await _context.Skills
@@ -44,9 +68,42 @@ namespace IleriWebProje.Data.Services
                 .FirstOrDefaultAsync(s => s.Id == id);
         }
 
-        public Task UpdateMovieAsync(NewSkillsVM data)
+
+
+        public async Task UpdateSkillAsync(NewSkillsVM data)
         {
-            throw new NotImplementedException();
+            var dbSkill = await _context.Skills.FirstOrDefaultAsync(n => n.Id == data.Id);
+
+            if (dbSkill != null)
+            {
+                dbSkill.SkillName = data.SkillName;
+                dbSkill.SkillDescription = data.Description;
+                dbSkill.Price = data.Price;
+                dbSkill.ImageURL = data.ImageURL;
+                dbSkill.PlatformId = data.PlatformId;
+                dbSkill.StartDate = data.StartDate;
+                dbSkill.EndDate = data.EndDate;
+                dbSkill.SkillCategory = data.SkillCategory;
+                dbSkill.SkillOrganizerID = data.SkillOrganizerID;
+                await _context.SaveChangesAsync();
+            }
+
+            //Removing existing Mentors
+            var existingMentorsDb = _context.Mentors_Skills.Where(n => n.SkillID == data.Id).ToList();
+            _context.Mentors_Skills.RemoveRange(existingMentorsDb);
+            await _context.SaveChangesAsync();
+
+            //Add Skills Mentors
+            foreach (var mentorId in data.MentorIds)
+            {
+                var newMentorSkill = new Mentors_Skills()
+                {
+                    SkillID = data.Id,
+                    MentorID = mentorId
+                };
+                await _context.Mentors_Skills.AddAsync(newMentorSkill);
+            }
+            await _context.SaveChangesAsync();
         }
     }
 }

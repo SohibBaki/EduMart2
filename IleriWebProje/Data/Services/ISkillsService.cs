@@ -9,7 +9,7 @@ namespace IleriWebProje.Data.Services
     {
         Task<Skills> GetSkillByIdAsync(int id);
         Task<NewSkillsDropdownVM> GetNewSkillDropdownValuesAsync();
-        Task AddNewMovieAsync(NewSkillsVM data);
-        Task UpdateMovieAsync(NewSkillsVM data);
+        Task AddNewSkillAsync(NewSkillsVM data);
+        Task UpdateSkillAsync(NewSkillsVM data);
     }
 }
