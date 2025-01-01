@@ -1,4 +1,5 @@
 ﻿using IleriWebProje.Data;
+using IleriWebProje.Data.Cart;
 using IleriWebProje.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +24,13 @@ namespace IleriWebProje
             services.AddScoped<ISkillOrganizersService, SkillOrganizersService>();
             services.AddScoped<IPlatformService, PlatformService>();
             services.AddScoped<ISkillsService,  SkillsService>();
+            services.AddScoped<IOrdersService, OrdersService>();
+
+            // Add session support
+            
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddCors();
 
@@ -51,6 +59,7 @@ namespace IleriWebProje
             app.UseStaticFiles();
             app.UseCors();
             app.UseRouting();
+            app.UseSession();
             app.UseAuthorization();
             app.UseCookiePolicy(); // Ensure cookie policy is applied
 

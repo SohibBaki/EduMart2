@@ -43,10 +43,17 @@ namespace IleriWebProje.Data
             base.OnModelCreating(modelBuilder);
         }
 
+
         public DbSet<Mentors> Mentors { get; set; }
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Mentors_Skills> Mentors_Skills { get; set; }
         public DbSet<Platforms> Platforms { get; set; }
         public DbSet<SkillOrganizers> Skill_Organizers { get; set; }
+
+        // Order related tables
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
     }
 }

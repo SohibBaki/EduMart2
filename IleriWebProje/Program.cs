@@ -1,6 +1,7 @@
 using IleriWebProje.Data.Services;
 using IleriWebProje.Data;
 using Microsoft.EntityFrameworkCore;
+using IleriWebProje.Data.Cart;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,17 @@ builder.Services.AddScoped<IMentorsService, MentorsService>();
 builder.Services.AddScoped<ISkillOrganizersService, SkillOrganizersService>();
 builder.Services.AddScoped<IPlatformService, PlatformService>();
 builder.Services.AddScoped<ISkillsService, SkillsService>();
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+// Add session services
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -30,6 +42,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Use session middleware
+app.UseSession();
 
 app.UseAuthorization();
 

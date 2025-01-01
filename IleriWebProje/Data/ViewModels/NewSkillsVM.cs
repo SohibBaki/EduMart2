@@ -19,7 +19,7 @@ namespace IleriWebProje.Data.ViewModels
 
         [Display(Name = "Price in TL")]
         [Required(ErrorMessage = "Price is required")]
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         [Display(Name = "Image URL")]
         [Required(ErrorMessage = "Image URL is required")]
