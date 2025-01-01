@@ -2,6 +2,8 @@ using IleriWebProje.Data.Services;
 using IleriWebProje.Data;
 using Microsoft.EntityFrameworkCore;
 using IleriWebProje.Data.Cart;
+using Microsoft.AspNetCore.Identity;
+using IleriWebProje.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,11 @@ builder.Services.AddControllersWithViews();
 // Register the DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register Identity services
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 // Register the Service
 builder.Services.AddScoped<IMentorsService, MentorsService>();
@@ -46,7 +53,15 @@ app.UseRouting();
 // Use session middleware
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+// Seed Users and Roles
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await AppDbInitializer.SeedUsersAndRolesAsync(app);
+}
 
 app.MapControllerRoute(
     name: "default",

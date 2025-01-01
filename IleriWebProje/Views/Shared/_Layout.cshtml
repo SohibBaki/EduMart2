@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-info border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Skills" asp-action="Index">Skill Share</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -23,18 +23,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Skills" asp-action="Index"><i class="bi bi-journal-bookmark-fill"></i> Skills</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Skills" asp-action="Index"><i class="bi bi-journal-bookmark-fill"></i> Skills</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear-fill"></i> Management
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Platforms" asp-action="Index"><i class="bi bi-play-btn-fill"></i> Platforms</a>
-                                <a class="dropdown-item" asp-controller="SkillOrganizers" asp-action="Index"><i class="bi bi-person-workspace"></i> Skill Agencies</a>
-                                <a class="dropdown-item" asp-controller="Mentors" asp-action="Index"><i class="bi bi-play-btn-fill"></i> Mentors</a>
-                            </div>
-                        </li>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear-fill"></i> Management
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Platforms" asp-action="Index"><i class="bi bi-play-btn-fill"></i> Platforms</a>
+                                    <a class="dropdown-item" asp-controller="SkillOrganizers" asp-action="Index"><i class="bi bi-person-workspace"></i> Skill Agencies</a>
+                                    <a class="dropdown-item" asp-controller="Mentors" asp-action="Index"><i class="bi bi-play-btn-fill"></i> Mentors</a>
+                                </div>
+                            </li>
+                        }
+
+                        
                     </ul>
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="Skills" asp-action="Filter" style="padding-right: 25px;">
@@ -45,22 +50,8 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
 
-                    @*User profile section*@
-                <div class="dropdown">
-                    <button class="btn btn-warning dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
-                            aria-expanded="false">
-                        <i class="bi bi-person-badge"></i> Hello
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="profile-btn">
-                        <li>
-                            <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-                                <i class="bi bi-list"></i>Orders
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-
+                    <partial name="_Identity.cshtml" />
+                   
                 </div>
             </div>
         </nav>

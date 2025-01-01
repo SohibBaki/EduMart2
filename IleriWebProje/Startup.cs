@@ -1,6 +1,8 @@
 ﻿using IleriWebProje.Data;
 using IleriWebProje.Data.Cart;
 using IleriWebProje.Data.Services;
+using IleriWebProje.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje
@@ -30,7 +32,19 @@ namespace IleriWebProje
             
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+            // Authentication and Authorization configuration
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+            services.AddMemoryCache();
             services.AddSession();
+            services.AddAuthentication(option =>
+            {
+                option.DefaultScheme = IdentityConstants.ApplicationScheme;
+            });
             services.AddControllersWithViews();
             services.AddCors();
 
@@ -60,6 +74,7 @@ namespace IleriWebProje
             app.UseCors();
             app.UseRouting();
             app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCookiePolicy(); // Ensure cookie policy is applied
 
