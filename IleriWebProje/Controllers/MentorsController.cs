@@ -1,5 +1,6 @@
 ﻿using IleriWebProje.Data;
 using IleriWebProje.Data.Services;
+using IleriWebProje.Data.Static;
 using IleriWebProje.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class MentorsController : Controller
     {
         private readonly IMentorsService _service;
@@ -15,6 +17,7 @@ namespace IleriWebProje.Controllers
         {
             _service = service;
         }
+
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
@@ -48,6 +51,7 @@ namespace IleriWebProje.Controllers
         }
 
         // Get Mentors/ Details/ 1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var mentorDetails = await _service.GetByIdAsync(id);

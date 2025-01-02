@@ -39,7 +39,9 @@
                                 @item.SkillName
                                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                 {
-                                    <a class="text-white float-right"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>
+
+                                    </a>
                                 }
                             </h5>
                         </div>

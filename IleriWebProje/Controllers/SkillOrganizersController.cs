@@ -1,11 +1,14 @@
 ﻿using IleriWebProje.Data;
 using IleriWebProje.Data.Services;
+using IleriWebProje.Data.Static;
 using IleriWebProje.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class SkillOrganizersController : Controller
     {
         private readonly ISkillOrganizersService _service;
@@ -14,12 +17,14 @@ namespace IleriWebProje.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allskill_Organizers = await _service.GetAllAsync();
             return View(allskill_Organizers);
         }
 
+        [AllowAnonymous]
         // Get SkillOrganizers/ Details /1
         public async Task<IActionResult> Details(int id)
         {

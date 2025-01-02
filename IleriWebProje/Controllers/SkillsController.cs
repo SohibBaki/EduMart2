@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IleriWebProje.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using IleriWebProje.Data.Static;
 
 namespace IleriWebProje.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class SkillsController : Controller
     {
         private readonly ISkillsService _service;
@@ -15,6 +17,7 @@ namespace IleriWebProje.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allSkills = await _service.GetAllAsync(n => n.Platforms);
@@ -38,6 +41,7 @@ namespace IleriWebProje.Controllers
         }
 
         // Get: Skills/Details/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var skillDetails = await _service.GetSkillByIdAsync(id);

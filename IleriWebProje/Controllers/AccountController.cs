@@ -21,7 +21,6 @@ namespace IleriWebProje.Controllers
             _context = context;
         }
 
-
         public async Task<IActionResult> Users()
         {
             var users = await _context.Users.ToListAsync();

@@ -1,5 +1,6 @@
 ﻿using IleriWebProje.Data;
 using IleriWebProje.Data.Services;
+using IleriWebProje.Data.Static;
 using IleriWebProje.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IleriWebProje.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class PlatformsController : Controller
     {
         private readonly IPlatformService _service;
@@ -23,6 +25,7 @@ namespace IleriWebProje.Controllers
         }
 
         // Get SkillOrganizers/ Details /1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var platformDetails = await _service.GetByIdAsync(id);
