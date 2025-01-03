@@ -13,7 +13,7 @@ namespace IleriWebProje.Models
         [Required(ErrorMessage = "Profile picture is required")]
         public string ProfilePictureURL { get; set; }
 
-        [Display(Name = "Agency Name")]
+        [Display(Name = "Name")]
         [Required(ErrorMessage = "Full name is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Full name must be between 3 and 50 characters")]
         public string FullName { get; set; }

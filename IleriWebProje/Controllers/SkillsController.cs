@@ -31,14 +31,16 @@ namespace IleriWebProje.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-
-                var filteredResultNew = allSkills.Where(n => string.Equals(n.SkillName, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.SkillDescription, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                var filteredResultNew = allSkills.Where(n =>
+                    n.SkillName.Contains(searchString, StringComparison.CurrentCultureIgnoreCase) ||
+                    n.SkillDescription.Contains(searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
 
                 return View("Index", filteredResultNew);
             }
 
             return View("Index", allSkills);
         }
+
 
         // Get: Skills/Details/1
         [AllowAnonymous]

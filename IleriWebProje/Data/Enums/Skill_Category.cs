@@ -4,8 +4,8 @@ namespace IleriWebProje.Data.Enums
 {
     public enum Skill_Category
     {
-        CreativeArts = 1,
-        Technology,
+        Technology = 1,
+        Cooking,
         Business,
         Health,
         Languages
