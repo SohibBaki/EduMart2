@@ -30,11 +30,11 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4 col-xs-6 border-primary mb-3">
+        <div class="col-md-4 col-xs-6 border-secondary mb-3">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
+                        <div class="card-header text-white bg-primary">
                             <h5 class="card-title">
                                 @item.SkillName
                                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
