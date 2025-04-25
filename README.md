@@ -1,7 +1,7 @@
-# TalentHive - E-commerce Web Application
+# EduMart - E-commerce Web Application
 
 ## Overview
-TalentHive is an ASP.NET MVC e-commerce web application designed to manage and sell online courses (referred to as "Skills"). The application allows users to browse, purchase, and manage courses, while administrators can manage mentors, platforms, and course organizers. The application also includes features like user authentication, shopping cart functionality, and order management.
+EduMart is an ASP.NET MVC e-commerce web application designed to manage and sell online courses (referred to as "Skills"). The application allows users to browse, purchase, and manage courses, while administrators can manage mentors, platforms, and course organizers. The application also includes features like user authentication, shopping cart functionality, and order management.
 
 ## Features
 - **User Authentication**: Users can register, log in, and manage their profiles. Roles include Admin and User.
