@@ -24,8 +24,8 @@ EduMart is an ASP.NET MVC e-commerce web application designed to manage and sell
 ## Directory Structure
 ```
 toimur678-aspnet-mvc-ecommerce-webapp/
-├── IleriWebProje.sln
-└── IleriWebProje/
+├── EduMart.sln
+└── EduMart/
     ├── Controllers/
     ├── Data/
     ├── Migrations/
@@ -48,7 +48,7 @@ toimur678-aspnet-mvc-ecommerce-webapp/
    git clone https://github.com/your-repo/toimur678-aspnet-mvc-ecommerce-webapp.git
    ```
 2. **Open the solution in Visual Studio**:
-   - Open `IleriWebProje.sln` in Visual Studio.
+   - Open `EduMart.sln` in Visual Studio.
 3. **Configure the database**:
    - Update the connection string in `appsettings.json` to point to your SQL Server instance.
    - Run the following commands in the Package Manager Console to apply migrations:
