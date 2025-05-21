@@ -24,15 +24,15 @@ EduMart is an ASP.NET MVC e-commerce web application designed to manage and sell
 ## Directory Structure
 ```
 toimur678-aspnet-mvc-ecommerce-webapp/
-├── EduMart.sln
-└── EduMart/
-    ├── Controllers/
-    ├── Data/
-    ├── Migrations/
-    ├── Models/
-    ├── Properties/
-    ├── Views/
-    └── wwwroot/
+|-- EduMart.sln
+|-- EduMart/
+    |-- Controllers/
+    |-- Data/
+    |-- Migrations/
+    |-- Models/
+    |-- Properties/
+    |-- Views/
+    |-- wwwroot/
 ```
 
 ## Getting Started
