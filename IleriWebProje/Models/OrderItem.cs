@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IleriWebProje.Models
+namespace EduMart.Models
 {
     public class OrderItem
     {

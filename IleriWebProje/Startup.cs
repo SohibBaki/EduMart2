@@ -1,11 +1,11 @@
-﻿using IleriWebProje.Data;
-using IleriWebProje.Data.Cart;
-using IleriWebProje.Data.Services;
-using IleriWebProje.Models;
+﻿using EduMart.Data;
+using EduMart.Data.Cart;
+using EduMart.Data.Services;
+using EduMart.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje
+namespace EduMart
 {
     public class Startup
     {

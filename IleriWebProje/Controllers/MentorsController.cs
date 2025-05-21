@@ -1,12 +1,12 @@
-﻿using IleriWebProje.Data;
-using IleriWebProje.Data.Services;
-using IleriWebProje.Data.Static;
-using IleriWebProje.Models;
+﻿using EduMart.Data;
+using EduMart.Data.Services;
+using EduMart.Data.Static;
+using EduMart.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje.Controllers
+namespace EduMart.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
     public class MentorsController : Controller

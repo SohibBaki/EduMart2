@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace IleriWebProje.Data.Base
+namespace EduMart.Data.Base
 {
     public interface IEntityBaseRepository<T> where T : class, IEntityBase, new()
     {

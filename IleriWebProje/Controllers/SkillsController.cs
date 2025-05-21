@@ -1,11 +1,11 @@
-﻿using IleriWebProje.Data.Services;
+﻿using EduMart.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using IleriWebProje.Data.ViewModels;
+using EduMart.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
-using IleriWebProje.Data.Static;
+using EduMart.Data.Static;
 
-namespace IleriWebProje.Controllers
+namespace EduMart.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
     public class SkillsController : Controller

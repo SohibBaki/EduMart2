@@ -1,10 +1,10 @@
-﻿using IleriWebProje.Data;
-using IleriWebProje.Data.Base;
-using IleriWebProje.Data.ViewModels;
-using IleriWebProje.Models;
+﻿using EduMart.Data;
+using EduMart.Data.Base;
+using EduMart.Data.ViewModels;
+using EduMart.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje.Data.Services
+namespace EduMart.Data.Services
 {
     public class SkillsService : EntityBaseRepository<Skills>, ISkillsService
     {

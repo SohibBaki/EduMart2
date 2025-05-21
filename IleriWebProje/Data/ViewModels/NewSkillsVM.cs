@@ -1,9 +1,9 @@
-﻿using IleriWebProje.Data.Base;
-using IleriWebProje.Data.Enums;
+﻿using EduMart.Data.Base;
+using EduMart.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IleriWebProje.Data.ViewModels
+namespace EduMart.Data.ViewModels
 {
     public class NewSkillsVM
     {

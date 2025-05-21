@@ -1,4 +1,4 @@
-﻿namespace IleriWebProje.Data.Static
+﻿namespace EduMart.Data.Static
 {
     public static class UserRoles
     {

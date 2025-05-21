@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IleriWebProje.Models
+namespace EduMart.Models
 {
     public class ShoppingCartItem
     {

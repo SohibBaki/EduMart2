@@ -1,7 +1,7 @@
-﻿using IleriWebProje.Models;
+﻿using EduMart.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje.Data.Cart
+namespace EduMart.Data.Cart
 {
     public class ShoppingCart
     {

@@ -1,7 +1,7 @@
-﻿using IleriWebProje.Data.Base;
+﻿using EduMart.Data.Base;
 using System.ComponentModel.DataAnnotations;
 
-namespace IleriWebProje.Models
+namespace EduMart.Models
 {
     public class Platforms : IEntityBase
     {

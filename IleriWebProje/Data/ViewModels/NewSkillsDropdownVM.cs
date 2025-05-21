@@ -1,11 +1,11 @@
-﻿using IleriWebProje.Models;
+﻿using EduMart.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
 
-namespace IleriWebProje.Data.ViewModels
+namespace EduMart.Data.ViewModels
 {
     public class NewSkillsDropdownVM
     {

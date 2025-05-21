@@ -1,8 +1,8 @@
-﻿using IleriWebProje.Data.Base;
-using IleriWebProje.Models;
+﻿using EduMart.Data.Base;
+using EduMart.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje.Data.Services
+namespace EduMart.Data.Services
 {
     public class MentorsService : EntityBaseRepository<Mentors>, IMentorsService
     {

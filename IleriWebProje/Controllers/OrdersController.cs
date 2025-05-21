@@ -1,11 +1,11 @@
-﻿using IleriWebProje.Data.Cart;
+﻿using EduMart.Data.Cart;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using IleriWebProje.Data.Services;
-using IleriWebProje.Data.ViewModels;
+using EduMart.Data.Services;
+using EduMart.Data.ViewModels;
 using System.Security.Claims;
 
-namespace IleriWebProje.Controllers
+namespace EduMart.Controllers
 {
     [Authorize]
     public class OrdersController : Controller

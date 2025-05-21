@@ -1,6 +1,6 @@
-﻿using IleriWebProje.Data.Cart;
+﻿using EduMart.Data.Cart;
 
-namespace IleriWebProje.Data.ViewModels
+namespace EduMart.Data.ViewModels
 {
     public class ShoppingCartVM
     {

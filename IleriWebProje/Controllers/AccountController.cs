@@ -1,12 +1,12 @@
-﻿using IleriWebProje.Data.ViewModels;
-using IleriWebProje.Data.Static;
-using IleriWebProje.Data;
-using IleriWebProje.Models;
+﻿using EduMart.Data.ViewModels;
+using EduMart.Data.Static;
+using EduMart.Data;
+using EduMart.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje.Controllers
+namespace EduMart.Controllers
 {
     public class AccountController : Controller
     {

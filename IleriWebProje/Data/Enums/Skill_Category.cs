@@ -1,6 +1,6 @@
-﻿using IleriWebProje.Models;
+﻿using EduMart.Models;
 
-namespace IleriWebProje.Data.Enums
+namespace EduMart.Data.Enums
 {
     public enum Skill_Category
     {

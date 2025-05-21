@@ -1,9 +1,9 @@
-﻿using IleriWebProje.Data.Static;
-using IleriWebProje.Models;
+﻿using EduMart.Data.Static;
+using EduMart.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 
-namespace IleriWebProje.Data
+namespace EduMart.Data
 {
     public class AppDbInitializer
     {

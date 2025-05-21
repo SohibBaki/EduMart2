@@ -1,4 +1,4 @@
-﻿namespace IleriWebProje.Data.Base
+﻿namespace EduMart.Data.Base
 {
     public interface IEntityBase
     {

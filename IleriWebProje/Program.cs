@@ -1,9 +1,9 @@
-using IleriWebProje.Data.Services;
-using IleriWebProje.Data;
+using EduMart.Data.Services;
+using EduMart.Data;
 using Microsoft.EntityFrameworkCore;
-using IleriWebProje.Data.Cart;
+using EduMart.Data.Cart;
 using Microsoft.AspNetCore.Identity;
-using IleriWebProje.Models;
+using EduMart.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

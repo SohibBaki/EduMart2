@@ -1,8 +1,8 @@
-﻿using IleriWebProje.Models;
+﻿using EduMart.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace IleriWebProje.Data
+namespace EduMart.Data
 {
     public class AppDbContext:IdentityDbContext<ApplicationUser>
     {

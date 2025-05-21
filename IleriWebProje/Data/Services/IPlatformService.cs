@@ -1,7 +1,7 @@
-﻿using IleriWebProje.Data.Base;
-using IleriWebProje.Models;
+﻿using EduMart.Data.Base;
+using EduMart.Models;
 
-namespace IleriWebProje.Data.Services
+namespace EduMart.Data.Services
 {
     public interface IPlatformService : IEntityBaseRepository<Platforms> // <modelname>
     {

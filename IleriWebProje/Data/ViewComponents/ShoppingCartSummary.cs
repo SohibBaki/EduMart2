@@ -1,7 +1,7 @@
-﻿using IleriWebProje.Data.Cart;
+﻿using EduMart.Data.Cart;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IleriWebProje.Data.ViewComponents
+namespace EduMart.Data.ViewComponents
 {
     public class ShoppingCartSummary:ViewComponent
     {

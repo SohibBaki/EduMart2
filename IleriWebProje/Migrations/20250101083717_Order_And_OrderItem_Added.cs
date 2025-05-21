@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace IleriWebProje.Migrations
+namespace EduMart.Migrations
 {
     /// <inheritdoc />
     public partial class Order_And_OrderItem_Added : Migration

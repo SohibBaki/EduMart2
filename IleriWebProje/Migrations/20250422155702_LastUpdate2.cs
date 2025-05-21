@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace IleriWebProje.Migrations
+namespace EduMart.Migrations
 {
     /// <inheritdoc />
     public partial class LastUpdate2 : Migration

@@ -1,9 +1,9 @@
-﻿using IleriWebProje.Data.Base;
-using IleriWebProje.Models;
-using IleriWebProje.Data.ViewModels;
+﻿using EduMart.Data.Base;
+using EduMart.Models;
+using EduMart.Data.ViewModels;
 
 
-namespace IleriWebProje.Data.Services
+namespace EduMart.Data.Services
 {
     public interface ISkillsService : IEntityBaseRepository<Skills>
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IleriWebProje.Data.ViewModels
+namespace EduMart.Data.ViewModels
 {
     public class RegisterVM
     {

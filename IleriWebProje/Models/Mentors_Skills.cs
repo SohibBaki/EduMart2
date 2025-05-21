@@ -1,4 +1,4 @@
-﻿namespace IleriWebProje.Models
+﻿namespace EduMart.Models
 {
     public class Mentors_Skills
     {
